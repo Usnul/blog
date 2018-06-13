@@ -29,7 +29,7 @@ This was my first foray into complex binary file reverse engineering, and I’d 
 
 _Disclaimer: I got stuck many times trying to understand the file format. For the sake of brevity, what’s presented here is a much smoother process than I really went. If you get stuck trying to do something similar, don’t be discouraged!_
 
-## A brief introduction to sampling profilers
+# A brief introduction to sampling profilers
 
 Before we dig into the file format, it will be helpful to understand what kind of data we need to extract. We’re trying to import a CPU time profile, which helps us answer the question “where is all the time going in my program?” There are many different ways to analyze runtime performance of a program, but one of the most common is to use a sampling profiler.
 
@@ -49,7 +49,7 @@ After you record a time profile in Instruments, you can see list of samples with
 
 This is exactly the information we want to extract: timestamps, and call stacks.
 
-## Exploring with `file` and `tree`
+# Exploring with `file` and `tree`
 
 If you’d like to follow along with these steps, you can find my test file here: [`simple-time-profile.trace`](https://github.com/jlfwong/speedscope/raw/f9032f41001f5a0943677ef7b9bd995a0895123c/sample/profiles/Instruments/8.3.3/simple-time-profile.trace.zip), which is a profile from Instruments 8.3.3. This is a time profile of a simple program I made specifically for analysis without any complex threading or multi-process behaviour: [`simple.cpp`](https://github.com/jlfwong/speedscope/blob/f9032f41001f5a0943677ef7b9bd995a0895123c/sample/programs/cpp/simple.cpp).
 
@@ -108,7 +108,7 @@ With that in mind, let’s take a look at the directory structure using the [`tr
 
 …okay then! There’s a lot going on in here, and it’s not clear where we should be looking for the data we’re interested in.
 
-## Finding strings with `grep`
+# Finding strings with `grep`
 
 Strings tend to be the easiest kind of data to find. In this case, we expect to find the function names of the program somewhere in the profile. Here’s the main function of the program we profiled:
 
@@ -136,7 +136,7 @@ Cool, so `form.template` contains the string `gamma` in it somewhere. Let’s se
 
 So what’s this `Apple binary property list` thing?
 
-## Interpreting the `plist` with `plutil`
+# Interpreting the `plist` with `plutil`
 
 From a Google search, I found an article about [converting binary plists](https://forensicswiki.org/wiki/Converting_Binary_Plists), which references a tool called `plutil` for analyzing and manipulating the contents of binary plists. `plutil -p` seems especially promising as a way of printing plists in a human readable format.
 
@@ -190,7 +190,7 @@ We could probably work around this limitation by subclassing `NSKeyedUnarchiver`
 
 To be able to extract data from this file, we’ll both need to be able to do the same thing as `plutil -p` is doing above, and also do the same thing as a `NSKeyedUnarchiver` would be doing in reconstructing the object graph from the `plist` file.
 
-## Making a binary plist parser
+# Making a binary plist parser
 
 Thankfully, parsing binary plists is a problem that many others have encountered in the past. Here are some binary plists parsers in a variety of languages:
 
@@ -201,7 +201,7 @@ Thankfully, parsing binary plists is a problem that many others have encountered
 
 Ultimately, I ended up making minor modifications to a binary plist parser that we use at Figma for Sketch import, which you can now find in the speedscope repository in [`instruments.ts`](https://github.com/jlfwong/speedscope/blob/9edd5ce7ed6aaf9290d57e85f125c648a3b66d1f/import/instruments.ts#L772).
 
-## Reconstructing the object graph
+# Reconstructing the object graph
 
 Also helpfully, other people have done analysis on how `NSKeyedArchiver` serializes its data into a property list. [This blogpost by mac4n6](https://www.mac4n6.com/blog/2016/1/1/manual-analysis-of-nskeyedarchiver-formatted-plist-files-a-review-of-the-new-os-x-1011-recent-items), for example, explores an example of how an object graph can be reconstructed from the property list. It ends up being a relatively straightforward process of [replacing numerical IDs with their corresponding entries in the `$object` lookup table](https://github.com/jlfwong/speedscope/blob/9edd5ce7ed6aaf9290d57e85f125c648a3b66d1f/import/instruments.ts#L622).
 
@@ -214,7 +214,7 @@ This too ends up being a task that surprisingly many people have been interested
 
 You can see examples of these in [`patternMatchObjectiveC`](https://github.com/jlfwong/speedscope/blob/9edd5ce7ed6aaf9290d57e85f125c648a3b66d1f/import/instruments.ts#L648) in the speedscope source code.
 
-## Handling custom datatypes
+# Handling custom datatypes
 
 There are datatypes in `simple-time-profile.trace/form.template`, however, that are specific to Instruments. When we’re trying to reconstruct an object from an `NSKeyedArchive`, we’re given a `$classname` variable. If we collect all the Instruments-specific classnames and print them out, we’re left with this:
 
@@ -266,7 +266,7 @@ You can see the relevant code in [`readInstrumentsKeyedArchive`](https://github.
 
 Now we have the symbol table, but we still need the list of samples!
 
-## Finding the list of samples with `find` and `du`
+# Finding the list of samples with `find` and `du`
 
 I was hoping that all of the information I was interested in would be in a single file within the `.trace` bundle, but it turns out we aren’t so lucky.
 
@@ -313,7 +313,7 @@ The `cut` command can be used to extract columns of data from a plaintext table.
 
 A file type of `data` isn’t very informative, so we’ll have to start examining the binary contents to figure out the format ourselves.
 
-## Exploring binary file contents with `xxd`
+# Exploring binary file contents with `xxd`
 
 `xxd` is a tool for taking a “hex dump” of a binary file ([`xxd` man page](https://linux.die.net/man/1/xxd)). A hex dump of a binary file is a representation of a file displaying each byte of the file as a hexadecimal pair.
 
@@ -433,7 +433,7 @@ Alright, this is looking pretty good! `XRSampleTimestampTypeID` and `XRBacktrace
 
 The next step is to figure out how these 33 byte entries map onto the fields in `schema.xml`.
 
-## Guessing binary formats with Synalyze It!
+# Guessing binary formats with Synalyze It!
 
 So far in this exploration, all of the tools I’ve been using come standard on most unix installations, and all are free and open source. While I certainly could have figured this out end-to-end using only tools in that category, my friend [Peter Sobot](https://petersobot.com/) introduced me to a tool that made this process much easier.
 
@@ -455,7 +455,7 @@ Sweet! So that answers the question of where the sample information is stored, a
 
 To try to find the stacks, we can see if the memory addresses identified as part of the symbol table show up anywhere outside of the `form.template` binary plist.
 
-## Finding binary sequences using python
+# Finding binary sequences using python
 
 Here’s the same symbol data from earlier.
 
@@ -520,7 +520,7 @@ After fumbling around in this file with Synalyze It! for a while, I discovered t
 So `integeruniquer.data` contains an array of arrays of 64 bit integers. Neat!
 It seems like each 64 bit int is either a memory address or an index into the array of arrays. This was the last piece of the puzzle we need to parse the profiles.
 
-## Putting it all together
+# Putting it all together
 
 So overall, the final process looks like this:
 
