@@ -4,7 +4,7 @@ published: true
 status: publish
 title: Reverse Engineering Instruments’ File Format
 type: post
-og_image: /images/instruments/hero.png
+og_image: /images/instruments/og_image.png
 ---
 
 <figure>
