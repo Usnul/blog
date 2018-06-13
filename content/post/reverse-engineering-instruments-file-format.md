@@ -4,6 +4,7 @@ published: true
 status: publish
 title: Reverse Engineering Instruments’ File Format
 type: post
+og_image: images/instruments/hero.png
 ---
 
 <figure>
@@ -23,6 +24,8 @@ At [Figma](https://www.figma.com/), I work in a C++ codebase that cross-compiles
 Up until this point, all of the formats I’ve been importing into speedscope have been either plaintext or JSON, which lends them to easier analysis. Instruments’ `.trace` file format, by contrast, is a complex, multi-encoding format which seems to use several hand-rolled binary formats.
 
 This was my first foray into complex binary file reverse engineering, and I’d like to share my process for doing it, hopefully teaching you about some tools along the way.
+
+{:toc}
 
 _Disclaimer: I got stuck many times trying to understand the file format. For the sake of brevity, what’s presented here is a much smoother process than I really went. If you get stuck trying to do something similar, don’t be discouraged!_
 

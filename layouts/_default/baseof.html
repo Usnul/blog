@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <meta charset="utf-8">
   <title>{{ block "title" . }}{{ end }}</title>
-  <meta property="og:image" content="http://jamie-wong.com/images/logo.png" />
+  <meta property="og:image" content="{{if .Params.og_image}}{{ .Site.BaseURL }}{{.Params.og_image}}{{else}}http://jamie-wong.com/images/logo.png{{end}}"
+  />
   <meta property="og:site_name" content="{{ .Site.Title }}" />
   <meta property="fb:admins" content="1652790284" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
