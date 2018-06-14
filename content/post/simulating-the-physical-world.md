@@ -4,6 +4,10 @@ published: true
 status: publish
 title: Simulating the Physical World
 type: post
+image: /images/simulating/og_image.png
+description: >
+    How might you go about simulating rain? Or any physical process over time,
+    for that matter?
 ---
 
 <link rel="stylesheet"

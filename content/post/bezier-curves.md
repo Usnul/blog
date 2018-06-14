@@ -4,6 +4,9 @@ published: true
 status: publish
 title: Bezier Curves from the Ground Up
 type: post
+image: /images/bezier/og_image.png
+description: >
+  Ever wondered how bezier curves work? It's surprisingly simple!
 ---
 
 <link rel="stylesheet" 

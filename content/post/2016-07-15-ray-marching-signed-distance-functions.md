@@ -5,6 +5,11 @@ status: publish
 title: Ray Marching and Signed Distance Functions
 type: post
 url: /2016/07/15/ray-marching-signed-distance-functions/
+image: /images/16-07-11/og_image.png
+description: >
+  One of the techniques used in many demo scenes is called ray marching. This
+  algorithm, used in combination with a special kind of function called "signed
+  distance functions", can create some pretty damn cool things in real time.
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">

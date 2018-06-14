@@ -4,6 +4,10 @@ published: true
 status: publish
 title: Depression & Recovery
 type: post
+image: /images/depression/og_image.png
+description: >
+    This is the story of my 2016 experiences with major depressive disorder,
+    medication, meditation, and a lot of stuff that didn't help.
 ---
 
 <style>
