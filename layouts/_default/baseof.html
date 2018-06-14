@@ -4,23 +4,47 @@
 <head>
   <meta charset="utf-8">
   <title>{{ block "title" . }}{{ end }}</title>
-  <meta property="og:image" content="{{if .Params.og_image}}{{ .Site.BaseURL }}{{.Params.og_image}}{{else}}http://jamie-wong.com/images/logo.png{{end}}"
-  />
-  <meta property="og:site_name" content="{{ .Site.Title }}" />
-  <meta property="fb:admins" content="1652790284" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="canonical" href="{{ .Permalink }}" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   <link rel="stylesheet" href="/stylesheets/pygments.css" />
-  <link href="/atom.xml" rel="alternate" title="Zero Wind :: Jamie Wong" type="application/atom+xml">
   <link href='//fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto+Condensed|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="fb:admins" content="1652790284" />
+  {{if .IsPage -}}
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ .Title }}" />
+    {{if .Description -}}
+      <meta property="og:description" content="{{ .Description }}" />
+    {{- end -}}
+    {{if .Params.image -}}
+      <meta property="og:image" content="{{if .Params.image}}{{ .Site.BaseURL }}{{.Params.image}}{{else}}http://jamie-wong.com/images/logo.png{{end}}" />
+    {{- end -}}
+  {{- end}}
+
+  <meta name="twitter:creator" content="@jlfwong" />
+  {{if .IsPage -}}
+    <meta name="twitter:card" content="summary{{if .Params.image}}_large_image{{end}}" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+    {{if .Description -}}
+      <meta name="twitter:description" content="{{ .Description }}" />
+    {{- end -}}
+    {{if .Params.image -}}
+      <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.image }}" />
+    {{- end -}}
+  {{- end}}
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+  <link href="/atom.xml" rel="alternate" title="Zero Wind :: Jamie Wong" type="application/atom+xml">
 </head>
-<body lang="en" {{ if .IsHome }}class="homepage"{{ end }}>
-<div id="main">
-{{ partial "author.html" . }}
-{{ block "main" . }}{{ end }}
-</div>
-{{ partial "analytics.html" }}
+
+<body lang="en" {{ if .IsHome }}class="homepage" {{ end }}>
+  <div id="main">
+    {{ partial "author.html" . }} {{ block "main" . }}{{ end }}
+  </div>
+  {{ partial "analytics.html" }}
 </body>
+
 </html>

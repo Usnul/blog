@@ -4,7 +4,10 @@ published: true
 status: publish
 title: Reverse Engineering Instruments’ File Format
 type: post
-og_image: /images/instruments/og_image.png
+image: /images/instruments/og_image.png
+description: >
+  What do you do when you want to extract data that you know is in
+  a file somewhere, but there are no APIs to extract it?
 ---
 
 <figure>

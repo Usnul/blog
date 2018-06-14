@@ -4,7 +4,10 @@ published: true
 status: publish
 title: "Color: From Hexcodes to Eyeballs"
 type: post
-og_image: /images/color/Hero.png
+image: /images/color/TriangleSliceRGB.png
+description: >
+  If you're curious about rainbows, colorimetry, gamma encoding,
+  and experiments run in the late 1920s, then this is the post for you!
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
