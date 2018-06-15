@@ -296,7 +296,7 @@ And those change over time like so:
 \frac{d \vec x_2}{dt} &= \vec v_2 \\ \\
 \frac{d \vec v_1}{dt} &= \vec a_1 = \frac{\vec F_1}{m_1} =
 G \frac{m_2 (\vec x_2 - \vec x_1)}{|\vec x_2 - \vec x_1|^3} \\ \\
-\frac{d \vec v_2}{dt} &= \vec a_1 = \frac{\vec F_1}{m_1} =
+\frac{d \vec v_2}{dt} &= \vec a_2 = \frac{\vec F_2}{m_2} =
 G \frac{m_1 (\vec x_1 - \vec x_2)}{|\vec x_1 - \vec x_2|^3}
 \end{aligned}$$</div>
 
@@ -323,9 +323,9 @@ f(t, y(t)) &= \frac{d\vec y}{dt}(t) &= \begin{bmatrix}
 \frac{d\vec v_2}{dt}(t)
 \end{bmatrix} &= \begin{bmatrix}
 \vec v_1(t) \\ \\
-G \frac{m_2 \big(\vec x_2(t) - \vec x_1(t)\big)}{|\vec x_2(t) - \vec x_1(t)|^2} \\ \\
+G \frac{m_2 \big(\vec x_2(t) - \vec x_1(t)\big)}{|\vec x_2(t) - \vec x_1(t)|^3} \\ \\
 \vec v_2(t) \\ \\
-G \frac{m_1 \big(\vec x_1(t) - \vec x_2(t)\big)}{|\vec x_1(t) - \vec x_2(t)|^2}
+G \frac{m_1 \big(\vec x_1(t) - \vec x_2(t)\big)}{|\vec x_1(t) - \vec x_2(t)|^3}
 \end{bmatrix}
 
 \end{aligned}$$</div>
@@ -625,7 +625,7 @@ function runSimulation(
             }
 
             simulationStep(tNext, yNext)
-        }
+        })
     }
     simulationStep(0, y0)
 }
