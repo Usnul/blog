@@ -69,7 +69,7 @@ A few of the great folks I worked closely with at Khan Academy
 </figcaption>
 </figure>
 
-My March 31st, I had landed in Hong Kong on a one-way ticket.
+By March 31st, I had landed in Hong Kong on a one-way ticket.
 
 ## Travel
 <span class="date">April - June 2016</span>
@@ -172,7 +172,7 @@ The only thing I would cry about was how dead I felt, which, unlike digging up m
 
 At that point, I started feeling deeply disconnected again. I realized that my visceral connection with Bonnie was all but gone, and that she could feel it too. I told her that when I looked into her eyes, I wanted desperately to feel connected.
 
-People talk about eyes actings as the windows into people’s soul. Through them, you see your past experiences with them, your future plans, your shared hopes, and the struggles you’ve overcome together.
+People talk about eyes acting as the windows into people’s soul. Through them, you see your past experiences with them, your future plans, your shared hopes, and the struggles you’ve overcome together.
 
 But all I saw was glass.
 
