@@ -20,8 +20,9 @@ description: >
 }
 </style>
 
-
 ![](/images/color/Hero.png)
+
+*This post is also available in Russian: [Цвет: от шестнадцатеричных кодов до глаза](https://habr.com/post/353582/), and Japanese: [色：ヘキサコードから眼球まで](https://postd.cc/color/).*
 
 Why do we perceive `background-color: #9B51E0` as this particular purple?
 

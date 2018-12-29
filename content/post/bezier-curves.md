@@ -9,11 +9,13 @@ description: >
   Ever wondered how bezier curves work? It's surprisingly simple!
 ---
 
-<link rel="stylesheet" 
+<link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
 
-How do you describe a straight line segment? We might think about a line segment 
-in terms of its endpoints. Let's call those endpoints \\( P_0 \\) and \\( P_1 
+*This post is also available in Japanese: [一から学ぶベジェ曲線](https://postd.cc/bezier-curves/).*
+
+How do you describe a straight line segment? We might think about a line segment
+in terms of its endpoints. Let's call those endpoints \\( P_0 \\) and \\( P_1
 \\).
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
@@ -32,16 +34,16 @@ in terms of its endpoints. Let's call those endpoints \\( P_0 \\) and \\( P_1
     </g>
 </svg>
 
-To define the line segment rigorously, we might say "the set of all points along 
-the line through \\( P_0 \\) and \\( P_1 \\) which lie between \\( P_0 \\) and 
+To define the line segment rigorously, we might say "the set of all points along
+the line through \\( P_0 \\) and \\( P_1 \\) which lie between \\( P_0 \\) and
 \\( P_1 \\)", or perhaps this:
 
 $$
 L(t) = (1 - t) P_0 + t P_1, 0 \le t \le 1
 $$
 
-Conveniently, this definition let's us easily find the coordinate of the point 
-any portion of the way along that line segment. The midpoint, for instance, lies 
+Conveniently, this definition let's us easily find the coordinate of the point
+any portion of the way along that line segment. The midpoint, for instance, lies
 at \\( L(0.5) \\).
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
@@ -73,8 +75,8 @@ L(0.5) = (1 - 0.5) P_0 + 0.5 P_1 = \begin{bmatrix}
 \end{bmatrix}
 $$</div>
 
-We can, in fact, *linearly interpolate* to any value we want between the two 
-points, with arbitrary precision. This allows us to do fancier things, like 
+We can, in fact, *linearly interpolate* to any value we want between the two
+points, with arbitrary precision. This allows us to do fancier things, like
 trace the line by having the \\( t \\) in \\( L(t) \\) be a function of time.
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
@@ -133,15 +135,15 @@ trace the line by having the \\( t \\) in \\( L(t) \\) be a function of time.
 })();
 </script>
 
-If you got this far, you might now be wondering, "What does this have to do with 
-curves?". Well, it seems quite intuitive that you can precisely describe a line 
+If you got this far, you might now be wondering, "What does this have to do with
+curves?". Well, it seems quite intuitive that you can precisely describe a line
 segment with only two points. How might you go about precisely describing this?
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
     <path d="M50 50 Q550 150 550 50" stroke="black" fill="none" stroke-width="2"/>
 </svg>
 
-It turns out that this *particular* kind of curve can be described by only 3 
+It turns out that this *particular* kind of curve can be described by only 3
 points!
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
@@ -168,15 +170,15 @@ points!
     </g>
 </svg>
 
-This is called a *Quadratic Bezier Curve*. A line segment, donning a fancier 
+This is called a *Quadratic Bezier Curve*. A line segment, donning a fancier
 hat, might be called a *Linear Bezier Curve*. Let's investigate why.
 
-First, let's consider what it looks like when we interpolate between \\( P_0 \\) 
-and \\( P_1 \\) while simultaneously interpolating between \\( P_1 \\) and \\( 
+First, let's consider what it looks like when we interpolate between \\( P_0 \\)
+and \\( P_1 \\) while simultaneously interpolating between \\( P_1 \\) and \\(
 P_2 \\).
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg" id="quad1">
-    <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1" 
+    <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1"
     stroke-dasharray="1, 2" />
     <path d="M550 150 L 550 50" stroke="black" fill="none" stroke-width="1" stroke-dasharray="1, 2" />
     <path d="" stroke="#EB5757" fill="none" stroke-width="1" class="p01" />
@@ -266,11 +268,11 @@ B_{1,2}(t) = (1 - t) P_1 + t P_2, 0 \le t \le 1 \\
 \end{aligned}
 $$</div>
 
-Now let's linearly interpolate between \\( B\_{0, 1}(t) \\) and \\( B\_{1, 2}(t) 
+Now let's linearly interpolate between \\( B\_{0, 1}(t) \\) and \\( B\_{1, 2}(t)
 \\)...
 
 <svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg" id="quad2">
-    <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1" 
+    <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1"
     stroke-dasharray="1, 2" />
     <path d="M550 150 L 550 50" stroke="black" fill="none" stroke-width="1" stroke-dasharray="1, 2" />
     <path d="" stroke="#EB5757" fill="none" stroke-width="1" class="p01" />
@@ -374,15 +376,15 @@ $$</div>
 })();
 </script>
 
-Notice that the equation for \\( B\_{0, 1, 2}(t) \\) looks remarkably similar to 
-the equations for \\( B\_{0, 1} \\) and \\( B\_{1, 2} \\). Let's see what 
+Notice that the equation for \\( B\_{0, 1, 2}(t) \\) looks remarkably similar to
+the equations for \\( B\_{0, 1} \\) and \\( B\_{1, 2} \\). Let's see what
 happens when we trace the path of \\( B\_{0, 1, 2}(t) \\).
 
-<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" 
+<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet"
     xmlns="http://www.w3.org/2000/svg" id="quad3">
-    <path d="M50 50 Q550 150 550 50" stroke="#2F80ED" fill="none" 
+    <path d="M50 50 Q550 150 550 50" stroke="#2F80ED" fill="none"
     stroke-width="2" stroke-dasharray="100%" class="curve"/>
-    <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1" 
+    <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1"
     stroke-dasharray="1, 2" />
     <path d="M550 150 L 550 50" stroke="black" fill="none" stroke-width="1" stroke-dasharray="1, 2" />
     <path d="" stroke="#EB5757" fill="none" stroke-width="1" class="p01" />
@@ -465,7 +467,7 @@ happens when we trace the path of \\( B\_{0, 1, 2}(t) \\).
         var x012 = x01 + t * (x12 - x01);
         var y012 = y01 + t * (y12 - y01);
 
-        gB012.setAttribute("transform",  "translate(" + x012 + "," + y012 + 
+        gB012.setAttribute("transform",  "translate(" + x012 + "," + y012 +
         ")");
 
         pB012.setAttribute("d", "M" + x01.toFixed(2) + " " + y01.toFixed(2) + " " +
@@ -484,7 +486,7 @@ happens when we trace the path of \\( B\_{0, 1, 2}(t) \\).
 
 We get our curve!
 
-<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" 
+<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet"
     xmlns="http://www.w3.org/2000/svg">
     <path d="M50 50 Q550 150 550 50" stroke="black" fill="none" stroke-width="2"/>
     <path d="M50 50 L550 150" stroke="black" fill="none" stroke-width="1" stroke-dasharray="1, 2" />
@@ -511,20 +513,20 @@ We get our curve!
 
 # Higher Order Bezier Curves
 
-Just as we get a quadratic bezier by interpolating between two linear bezier 
-curves, we get a <span style="color:#9B51E0">cubic bezier curve</span> by 
-interpolating between two <span style="color:#2F80ED">quadratic bezier 
+Just as we get a quadratic bezier by interpolating between two linear bezier
+curves, we get a <span style="color:#9B51E0">cubic bezier curve</span> by
+interpolating between two <span style="color:#2F80ED">quadratic bezier
 curves</span>:
 
-<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" 
+<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet"
     xmlns="http://www.w3.org/2000/svg" id="cubic1">
     <path d="M50 50" fill="none" stroke="black" stroke-width="1" class="line" />
     <path d="M50 50" fill="none" stroke="#27AE60" stroke-width="1" class="line-prog" />
-    <path d="M50 50 Q50 150 550 50" stroke="#2F80ED" fill="none" 
+    <path d="M50 50 Q50 150 550 50" stroke="#2F80ED" fill="none"
     stroke-width="2" class="p012" />
-    <path d="M50 150 Q550 50 550 150" stroke="#2F80ED" fill="none" 
+    <path d="M50 150 Q550 50 550 150" stroke="#2F80ED" fill="none"
     stroke-width="2" class="p123" />
-    <path d="M50 50 C50 150 550 50 550 150" fill="none" stroke="#9B51E0" 
+    <path d="M50 50 C50 150 550 50 550 150" fill="none" stroke="#9B51E0"
     stroke-width="3" class="p0123" />
     <g transform="translate(50, 50)">
         <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
@@ -656,11 +658,11 @@ B_{0,1,2,3}(t) = (1 - t) B_{0,1,2}(t) + t B_{1,2,3}(t), 0 \le t \le 1 \\
 \end{aligned}
 $$</div>
 
-<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet" 
+<svg viewBox="0 0 600 200" preserveAspectRatio="xMinYMin meet"
     xmlns="http://www.w3.org/2000/svg" id="cubic1">
-    <path d="M50 50 C50 150 550 50 550 150" fill="none" stroke="black" 
+    <path d="M50 50 C50 150 550 50 550 150" fill="none" stroke="black"
     stroke-width="3" class="p0123" />
-    <path d="M50 50 L 50 150 M550 50 L 550 150" stroke="black" fill="none" 
+    <path d="M50 50 L 50 150 M550 50 L 550 150" stroke="black" fill="none"
     stroke-width="1" stroke-dasharray="1, 2" />
     <g transform="translate(50, 50)">
         <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
@@ -688,12 +690,12 @@ $$</div>
     </g>
 </svg>
 
-You may have a sneaking suspicion at this point that there's a nice recursive 
+You may have a sneaking suspicion at this point that there's a nice recursive
 definition lurking here. And indeed there is:
 
 <div>$$
 \begin{aligned}
-B_{k,...,n}(t) &= (1 - t) B_{k,...,n-1}(t) + t B_{k+1,...,n}(t), 0 \le t \le 1 
+B_{k,...,n}(t) &= (1 - t) B_{k,...,n-1}(t) + t B_{k+1,...,n}(t), 0 \le t \le 1
 \\
 B_{i}(t) &= P_{i}
 \end{aligned}
@@ -716,8 +718,8 @@ B([[0.0, 0.0], [0.0, 0.42], [0.58, 1.0], [1.0, 1.0]], 0.7)
 
 # Cubic Bezier Curves in Vector Images
 
-As it happens, cubic bezier curves seem to be the right balance between 
-simplicity and accuracy for many purposes. These are the kind of curves you'll 
+As it happens, cubic bezier curves seem to be the right balance between
+simplicity and accuracy for many purposes. These are the kind of curves you'll
 most often see in vector editing tools like [Figma][1].
 
 <figure>
@@ -726,37 +728,37 @@ most often see in vector editing tools like [Figma][1].
 </figure>
 
 You can think of the two filled in circles <span style="color: #2EC1FF">●
-</span> as \\( P_0 \\) and \\( P_3 \\), and the two diamonds <span style="color: 
-#2EC1FF">◇</span> as \\( P_1 \\) and \\( P_2 \\). These are the fundamental 
+</span> as \\( P_0 \\) and \\( P_3 \\), and the two diamonds <span style="color:
+#2EC1FF">◇</span> as \\( P_1 \\) and \\( P_2 \\). These are the fundamental
 building blocks of more complex curved vector constructions.
 
 Font glyphs are specified in terms of bezier curves in TrueType (.ttf) fonts.
 
 <figure>
     <img src="/images/vectore.png" style="width: 400px"/>
-    <figcaption>A lower-case "e" in <a 
-    href="http://www.fonts2u.com/free-serif-italic.font">Free Serif Italic</a> 
-    shown as a <a 
-    href="https://medium.com/figma-design/introducing-vector-networks-3b877d2b864f#.95e6iz9he">vector 
+    <figcaption>A lower-case "e" in <a
+    href="http://www.fonts2u.com/free-serif-italic.font">Free Serif Italic</a>
+    shown as a <a
+    href="https://medium.com/figma-design/introducing-vector-networks-3b877d2b864f#.95e6iz9he">vector
     network</a> of cubic bezier curves</figcaption>
 </figure>
 
-The Scalable Vector Graphics (.svg) file format uses bezier curves as one of its 
+The Scalable Vector Graphics (.svg) file format uses bezier curves as one of its
 two [curve primitives][0], which are used extensively in this:
 
 <figure>
     <img src="/images/ghostscripttiger.svg" style="width: 400px" />
-    <figcaption>The <a 
-href="https://en.wikipedia.org/wiki/Talk%3AGhostscript#Origin_of_tiger.eps.3F_.28aka_.22cubic_spline_tiger.22.29">Cubic 
+    <figcaption>The <a
+href="https://en.wikipedia.org/wiki/Talk%3AGhostscript#Origin_of_tiger.eps.3F_.28aka_.22cubic_spline_tiger.22.29">Cubic
 Spline Tiger</a> in SVG format.</figcaption>
 </figure>
 
 # Cubic Bezier Curves in Animation
 
-While bezier curves have their most obvious uses in representing spacial curves, 
-there's no reason why they can't be used to represented curved relationships 
-between other quantities. For instance, rather than relating \\( x \\) and \\(y 
-\\), [CSS transition timing functions][2] relate a time ratio with an output 
+While bezier curves have their most obvious uses in representing spacial curves,
+there's no reason why they can't be used to represented curved relationships
+between other quantities. For instance, rather than relating \\( x \\) and \\(y
+\\), [CSS transition timing functions][2] relate a time ratio with an output
 value ratio.
 
 <style>
@@ -815,15 +817,15 @@ value ratio.
 <figure>
 <svg viewBox="0 0 600 150" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg" id="anim0">
     <g transform="translate(50, 25)">
-        <circle class="ball linear" cx="0" cy="100" r="5" fill="#F2994A" 
+        <circle class="ball linear" cx="0" cy="100" r="5" fill="#F2994A"
     stroke-width="0" />
     </g>
     <g transform="translate(150, 25)">
-        <circle class="ball ease" cx="0" cy="100" r="5" fill="#F2994A" 
+        <circle class="ball ease" cx="0" cy="100" r="5" fill="#F2994A"
     stroke-width="0" />
     </g>
     <g transform="translate(250, 25)">
-        <circle class="ball ease-in" cx="0" cy="100" r="5" fill="#F2994A" 
+        <circle class="ball ease-in" cx="0" cy="100" r="5" fill="#F2994A"
     stroke-width="0" />
     </g>
     <g transform="translate(350, 25)">
@@ -839,9 +841,9 @@ value ratio.
 <figcaption>Transition timing functions defined by bezier curves</figcaption>
 </figure>
 
-Cubic bezier curves are one of two ways of expressing timing functions in CSS 
-([`steps()`][3] being the other).  The `cubic-bezier(x1, y1, x2, y2)` notation 
-for CSS timing functions specifies the coordinates of \\( P_1 \\) and \\( P_2 
+Cubic bezier curves are one of two ways of expressing timing functions in CSS
+([`steps()`][3] being the other).  The `cubic-bezier(x1, y1, x2, y2)` notation
+for CSS timing functions specifies the coordinates of \\( P_1 \\) and \\( P_2
 \\) of a cubic bezier curve.
 
 <figure>
@@ -849,11 +851,11 @@ for CSS timing functions specifies the coordinates of \\( P_1 \\) and \\( P_2
 	<figcaption>Diagram of <code>transition-timing-function: cubic-bezier(x1, y1, x2, y2)</code></figcaption>
 </figure>
 
-Let's pretend we're trying to animate an orange ball moving. In all of these 
-diagrams, the <span style="color: #EB5757">red lines representing time</span> 
+Let's pretend we're trying to animate an orange ball moving. In all of these
+diagrams, the <span style="color: #EB5757">red lines representing time</span>
 move at a constant speed.
 
-<svg viewBox="0 0 600 400" preserveAspectRatio="xMinYMin meet" 
+<svg viewBox="0 0 600 400" preserveAspectRatio="xMinYMin meet"
     xmlns="http://www.w3.org/2000/svg" id="anim1">
     <g transform="translate(25, 30)">
         <text x="50" y="-16" font-size="70%" text-anchor="middle">
@@ -871,7 +873,7 @@ move at a constant speed.
             <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
         </g>
         <g transform="translate(100, 0)">
-            <text x="-10" y="0" font-size="70%" text-anchor="end" 
+            <text x="-10" y="0" font-size="70%" text-anchor="end"
                 alignment-baseline="middle">
                 (1.00, 1.00)
             </text>
@@ -900,7 +902,7 @@ move at a constant speed.
             <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
         </g>
         <g transform="translate(25, 0)">
-            <text x="-10" y="0" font-size="70%" text-anchor="end" 
+            <text x="-10" y="0" font-size="70%" text-anchor="end"
                 alignment-baseline="middle">
                 (0.25, 1.00)
             </text>
@@ -920,7 +922,7 @@ move at a constant speed.
             <path d="M0 0 L0 100" fill="none" stroke-width="1" stroke-dasharray="1, 2" stroke="#EB5757" />
         </g>
         <path d="M0 100 C42 100 100 0 100 0" fill="none" stroke-width="2" stroke="black" />
-        <path d="M0 100 L42 100 M100 0 L100 0" fill="none" stroke-dasharray="1, 
+        <path d="M0 100 L42 100 M100 0 L100 0" fill="none" stroke-dasharray="1,
         2" stroke-width="1" stroke="black" />
 		<circle cx="0" cy="100" r="4" fill="white" stroke="black" stroke-width="2" />
         <g transform="translate(42, 100)">
@@ -930,7 +932,7 @@ move at a constant speed.
             <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
         </g>
         <g transform="translate(100, 0)">
-            <text x="-10" y="0" font-size="70%" text-anchor="end" 
+            <text x="-10" y="0" font-size="70%" text-anchor="end"
                 alignment-baseline="middle">
                 (1.00, 1.00)
             </text>
@@ -949,7 +951,7 @@ move at a constant speed.
         <g class="timeline">
             <path d="M0 0 L0 100" fill="none" stroke-width="1" stroke-dasharray="1, 2" stroke="#EB5757" />
         </g>
-        <path d="M0 100 C0 100 58 0 100 0" fill="none" stroke-width="2" stroke="black" /> <path d="M0 100 L0 100 M58 0 L100 0" fill="none" stroke-dasharray="1, 2" 
+        <path d="M0 100 C0 100 58 0 100 0" fill="none" stroke-width="2" stroke="black" /> <path d="M0 100 L0 100 M58 0 L100 0" fill="none" stroke-dasharray="1, 2"
         stroke-width="1" stroke="black" />
 		<circle cx="0" cy="100" r="4" fill="white" stroke="black" stroke-width="2" />
         <g transform="translate(0, 100)">
@@ -959,7 +961,7 @@ move at a constant speed.
             <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
         </g>
         <g transform="translate(58, 0)">
-            <text x="-10" y="0" font-size="70%" text-anchor="end" 
+            <text x="-10" y="0" font-size="70%" text-anchor="end"
                 alignment-baseline="middle">
                 (0.58, 1.00)
             </text>
@@ -988,7 +990,7 @@ move at a constant speed.
             <circle cx="0" cy="0" r="4" fill="white" stroke="black" stroke-width="2" />
         </g>
         <g transform="translate(58, 0)">
-            <text x="-10" y="0" font-size="70%" text-anchor="end" 
+            <text x="-10" y="0" font-size="70%" text-anchor="end"
                 alignment-baseline="middle">
                 (0.58, 1.00)
             </text>
@@ -1058,53 +1060,53 @@ move at a constant speed.
 
 # Why Bezier Curves?
 
-Bezier curves are a beautiful abstraction for describing curves. The most 
-commonly used form, cubic bezier curves, reduce the problem of describing and 
+Bezier curves are a beautiful abstraction for describing curves. The most
+commonly used form, cubic bezier curves, reduce the problem of describing and
 storing a curve down to storing 4 coordinates.
 
-Beyond the efficiency benefits, the effect of moving the 4 control points on the 
-curve shape is intuitive, making them suitable for direct manipulation editors.  
+Beyond the efficiency benefits, the effect of moving the 4 control points on the
+curve shape is intuitive, making them suitable for direct manipulation editors.
 
-Since 2 of the points specify the endpoints of the curve, composing many bezier 
-curves into more complex structures with precision becomes easy. The exact 
-specification of endpoints is always what makes it so convenient in the 
-animation case: the only sensible value of the easing function at \\( t = 0\% 
-\\) is the initial value, and the only sensible value at \\( t = 100\% \\) is 
+Since 2 of the points specify the endpoints of the curve, composing many bezier
+curves into more complex structures with precision becomes easy. The exact
+specification of endpoints is always what makes it so convenient in the
+animation case: the only sensible value of the easing function at \\( t = 0\%
+\\) is the initial value, and the only sensible value at \\( t = 100\% \\) is
 the final value.
 
-A less obvious benefit is that the line from \\( P_0 \\) to \\( P_1 \\) 
-specifies the tangent of the curve leaving \\( P_0 \\). This means if you have 
-two joint curves with mirrored control points, the slope at the join point is 
+A less obvious benefit is that the line from \\( P_0 \\) to \\( P_1 \\)
+specifies the tangent of the curve leaving \\( P_0 \\). This means if you have
+two joint curves with mirrored control points, the slope at the join point is
 guaranteed to be the same on either side of the join.
 
 <figure>
     <img src="/images/jointbezier.png" style="width: 500px" />
-    <figcaption>Left: Two joint cubic bezier curves with mirrored control 
+    <figcaption>Left: Two joint cubic bezier curves with mirrored control
     points.  Right: control points not mirrored.</figcaption>
 </figure>
 
-A major benefit of mathematical construct like bezier curves is the ability to 
-leverage decades of mathematical research to solve most problems you might run 
+A major benefit of mathematical construct like bezier curves is the ability to
+leverage decades of mathematical research to solve most problems you might run
 into, completely agnostic to the rest of your problem domain.
 
-For instance, to make this post, I had to learn how to split a bezier curve at a 
-given value of \\( t \\) in order to animate the curves above. I was quickly 
-able to find a well written article on the matter: [A Primer on Bézier Curves: 
+For instance, to make this post, I had to learn how to split a bezier curve at a
+given value of \\( t \\) in order to animate the curves above. I was quickly
+able to find a well written article on the matter: [A Primer on Bézier Curves:
 Splitting Curves][4].
 
 # Resources and Further Reading
 
-- [A Primer on Bézier Curves][5] in addition to having a description of using 
-deCasteljau's algorithm to draw and split curves, this free online book seems to 
+- [A Primer on Bézier Curves][5] in addition to having a description of using
+deCasteljau's algorithm to draw and split curves, this free online book seems to
 be a pretty comprehensive intro.
-- [Bézier curve on Wikipedia][6] shows many different mathematical formulas of 
-bezier curves beyond the recursive definition shown here. It also contains the 
+- [Bézier curve on Wikipedia][6] shows many different mathematical formulas of
+bezier curves beyond the recursive definition shown here. It also contains the
 original animations that made bezier curves seem so evidently elegant to me.
 
-Also a shoutout to Dudley Storey for his article [Make SVG Responsive][7], which 
+Also a shoutout to Dudley Storey for his article [Make SVG Responsive][7], which
 allowed all of the inline SVG in this article to work nicely on mobile.
 
-<script 
+<script
 src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
 <script>

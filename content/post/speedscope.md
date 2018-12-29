@@ -10,8 +10,9 @@ description: >
 ---
 
 <style>li + li { margin-top: 0 }</style>
-
 ![speedscope](/images/speedscope/hero.gif)
+
+*An edited version of this post was written for Mozilla Hacks: [Cross-language Performance Profile Exploration with speedscope](https://hacks.mozilla.org/2018/11/cross-language-performance-profile-exploration-with-speedscope/).*
 
 For the past 9 months, I've been working on speedscope: a fast, interactive, web-based viewer for large performance profiles. You can use it live at [www.speedscope.app](https://www.speedscope.app/), and read the code on GitHub at [jlfwong/speedscope](https://github.com/jlfwong/speedscope).
 

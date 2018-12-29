@@ -28,6 +28,8 @@ background-image: url(/images/umbrella.png); user-select: none;"></canvas>
 <figcaption>Move your mouse left and right to control the wind.</figcaption>
 </figure>
 
+*This post is also available in Russian: [Симуляция физического мира](https://habr.com/post/338992/).*
+
 How might you go about simulating rain? Or any physical process over time, for
 that matter?
 
