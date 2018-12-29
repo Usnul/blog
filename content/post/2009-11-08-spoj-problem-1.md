@@ -4,6 +4,7 @@ meta:
   _edit_last: "1"
   _edit_lock: "1258154416"
 published: true
+unlisted: true
 status: publish
 tags:
 - bash

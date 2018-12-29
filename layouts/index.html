@@ -8,7 +8,7 @@ I work on design tools at <a href="https://www.figma.com">Figma</a>.</p>
 <p>Here are some things I've written:</p>
 
 <ul class="postlist">
-{{ range .Data.Pages.ByPublishDate }}
+{{ range where .Data.Pages.ByPublishDate ".Params.unlisted" "!=" "true"}}
   <li>
     <a href="{{ .Permalink }}">{{ .Title }}</a>
     <span class="postlist__date">{{ .Date.Format "January 2, 2006" }}</span>

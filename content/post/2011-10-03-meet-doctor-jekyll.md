@@ -1,6 +1,7 @@
 ---
 date: 2011-10-03T00:00:00Z
 published: true
+unlisted: true
 status: publish
 tags:
 - jekyll
@@ -12,27 +13,27 @@ type: post
 url: /2011/10/03/meet-doctor-jekyll/
 ---
 
-My wordpress blog has lasted longer than any site I've used before, but I 
+My wordpress blog has lasted longer than any site I've used before, but I
 finally got sick of it and switched. So now I'm on [Jekyll][].
 
-Wordpress is an incredible blogging-platform-turned-CMS that provides many 
-things I wouldn't want to do myself. It's been an incredible SEO asset and 
-worked beautifully on shared hosting. I would still recommend it to anyone who 
-wants to write a blog and doesn't want to spend much time customizing or setting 
-things up. There are plenty of nice looking pre-made themes and plugins to do 
+Wordpress is an incredible blogging-platform-turned-CMS that provides many
+things I wouldn't want to do myself. It's been an incredible SEO asset and
+worked beautifully on shared hosting. I would still recommend it to anyone who
+wants to write a blog and doesn't want to spend much time customizing or setting
+things up. There are plenty of nice looking pre-made themes and plugins to do
 pretty much anything you want.
 
 ## Wordpress to Jekyll - Why I switched
 
-[Jekyll][] is "a blog-aware static site generator in Ruby". Basically what this 
-means is that all the pages you see on this blog are generated once - not 
-generated on demand every time they're requested. There's no DB backend, no 
+[Jekyll][] is "a blog-aware static site generator in Ruby". Basically what this
+means is that all the pages you see on this blog are generated once - not
+generated on demand every time they're requested. There's no DB backend, no
 scripting language running on the server side. These are just plain HTML pages.
 
-I started off with a template I got off here: 
-[github.com/krisb/jekyll-template][]. But if you're planning on starting a blog 
-similar to mine, don't start from scratch like I did - go check out 
-[Octopress][]. It provides a lot of niceties for blogging hackers that Jekyll 
+I started off with a template I got off here:
+[github.com/krisb/jekyll-template][]. But if you're planning on starting a blog
+similar to mine, don't start from scratch like I did - go check out
+[Octopress][]. It provides a lot of niceties for blogging hackers that Jekyll
 doesn't out of the box.
 
 [github.com/krisb/jekyll-template]: https://github.com/krisb/jekyll-template
@@ -41,45 +42,45 @@ So why did I switch?
 
 ### Styling
 
-While Wordpress is completely skinnable - it's a pain in the ass. I really just 
-wanted to start from scratch and only build the things I absolutely needed. 
-There is one unifying layout and only 2 types of page on this site: the posts 
-list and posts. It means I can set my own structure for everything and keep it 
+While Wordpress is completely skinnable - it's a pain in the ass. I really just
+wanted to start from scratch and only build the things I absolutely needed.
+There is one unifying layout and only 2 types of page on this site: the posts
+list and posts. It means I can set my own structure for everything and keep it
 much, much simpler than it would have been on Wordpress.
 
 ### Workflow
 
-I love vim. I feel like I'm dragging a huge weight when I need to edit text - 
-especially code - without vim. Since Jekyll just generates my site from code, it 
-means I can edit everything including this post in vim. All I do is spawn up a 
-local Jekyll server (WEBrick) and there's my preview. Once I'm done, all I have 
-to do is commit the changes to git, and then I pull down the changes on my 
+I love vim. I feel like I'm dragging a huge weight when I need to edit text -
+especially code - without vim. Since Jekyll just generates my site from code, it
+means I can edit everything including this post in vim. All I do is spawn up a
+local Jekyll server (WEBrick) and there's my preview. Once I'm done, all I have
+to do is commit the changes to git, and then I pull down the changes on my
 server - which is now hosted on EC2, with help from [Andrew Tinits][].
 
 
 ### Novelty
 
-I'll be honest here - I feel cooler running Jekyll than Wordpress. And having 
-the source for my blog on github just feels right. Seriously: 
+I'll be honest here - I feel cooler running Jekyll than Wordpress. And having
+the source for my blog on github just feels right. Seriously:
 [github.com/jlfwong/blog][].
 
-Plus there's nothing better to motivate you to write a blog post than redoing 
-your entire blog. I promise I won't be another person who just writes a blog so 
-they can write about how they set up their blog and then never write again (you 
+Plus there's nothing better to motivate you to write a blog post than redoing
+your entire blog. I promise I won't be another person who just writes a blog so
+they can write about how they set up their blog and then never write again (you
 know who you are.)
 
 ## The Tech
 
-Here's the part where I justify you spending the time reading this post by 
+Here's the part where I justify you spending the time reading this post by
 rambling about technology you might be interested in.
 
 ### Markdown
 
-[Markdown][] is a content writing language for the web which compiles 
-(primarily) down to HTML. The idea is that it enables you to write documents 
-that are still readable in plaintext, but compile to useful HTML. This means 
-having a nice syntax for headers, emphasis, links, images, lists and a couple of 
-other things. It's definitely much nicer than raw HTML for writing up blog 
+[Markdown][] is a content writing language for the web which compiles
+(primarily) down to HTML. The idea is that it enables you to write documents
+that are still readable in plaintext, but compile to useful HTML. This means
+having a nice syntax for headers, emphasis, links, images, lists and a couple of
+other things. It's definitely much nicer than raw HTML for writing up blog
 posts.
 
 As a quick example, it takes this:
@@ -128,8 +129,8 @@ I am pretty awesome
 
 ### Sass
 
-[Sass][] is awesome syntactic sugar for CSS. It deals with a bunch of things 
-that are simply a giant pain in vanilla CSS. One of my favorite things it does 
+[Sass][] is awesome syntactic sugar for CSS. It deals with a bunch of things
+that are simply a giant pain in vanilla CSS. One of my favorite things it does
 is deal with nesting for you.
 
 ```sass
@@ -155,9 +156,9 @@ Turns into:
 ```
 
 
-Since it runs through a compiler before producing CSS, it lets you do some very 
-useful things before producing the raw CSS. One of the most valuable things for 
-me while working on this site was variables. It means you can do things like 
+Since it runs through a compiler before producing CSS, it lets you do some very
+useful things before producing the raw CSS. One of the most valuable things for
+me while working on this site was variables. It means you can do things like
 this:
 
 ```sass
@@ -195,31 +196,31 @@ And get back this:
     color: #281e17; }
 ```
 
-The really cool thing about the color functions is that you can base your entire 
-website off only a few colours, then make everything relative to those. This 
-site (at time of writing) actually only has two colours specifically defined - 
-the content font color and the body background. Everything else is relative to 
+The really cool thing about the color functions is that you can base your entire
+website off only a few colours, then make everything relative to those. This
+site (at time of writing) actually only has two colours specifically defined -
+the content font color and the body background. Everything else is relative to
 those.
 
 ### Compass
 
-[Compass][] is a collection of mixins and utilities for sass. It's especially 
-useful for CSS3 related tasks, since it does all the proprietary browser 
+[Compass][] is a collection of mixins and utilities for sass. It's especially
+useful for CSS3 related tasks, since it does all the proprietary browser
 prefixes (`-O-, -moz-, -webkit-`) for you when you do things like `+box-radius`.
 
-It also comes with [Blueprint][], which gives you a great starting point to have 
-all the default styles for things (margins, typography, resets) look nice out of 
+It also comes with [Blueprint][], which gives you a great starting point to have
+all the default styles for things (margins, typography, resets) look nice out of
 the box.
 
 ### Pygments
 
-[Pygments][] is a syntax highlighter which produces HTML output which can then 
-be styled with CSS. Github uses a wrapper around it called [Albino][] to do all 
-the syntax highlighting you see on the site, and it's what I'm using to make 
+[Pygments][] is a syntax highlighter which produces HTML output which can then
+be styled with CSS. Github uses a wrapper around it called [Albino][] to do all
+the syntax highlighting you see on the site, and it's what I'm using to make
 pygments work in Jekyll.
 
-I'm actually using a custom Jekyll plugin to deal with all of this because I 
-didn't want to have to stick liquid tags in my posts. In retrospect, this was 
+I'm actually using a custom Jekyll plugin to deal with all of this because I
+didn't want to have to stick liquid tags in my posts. In retrospect, this was
 probably really unnecessary, but it's done now.
 
 You can see the plugin here: [markdown.rb][]
@@ -228,11 +229,11 @@ You can see the plugin here: [markdown.rb][]
 
 ### Google Web Fonts
 
-[Google Web Fonts][] let you use a number of beautiful fonts that may not be 
-available on your visitor's machine on your websites. I'm currently using it for 
+[Google Web Fonts][] let you use a number of beautiful fonts that may not be
+available on your visitor's machine on your websites. I'm currently using it for
 my logo, sidebar and headers.
 
-Using it is beautifully simple. All you have to do is drop a link tag in the 
+Using it is beautifully simple. All you have to do is drop a link tag in the
 head like the one I'm using:
 
 ```html
@@ -247,12 +248,12 @@ font-family: Questrial, "Helvetica Neue", Arial, Helvetica, sans-serif
 
 ### Nginx
 
-Since I had to set up my own web server to run this, I decided I'd try messing 
-around with [nginx][] since it looks much nicer to configure than apache. For 
-the longest time, I thought it was pronounced "en-jinx". The actual 
+Since I had to set up my own web server to run this, I decided I'd try messing
+around with [nginx][] since it looks much nicer to configure than apache. For
+the longest time, I thought it was pronounced "en-jinx". The actual
 pronounciation, "engine-ex" made a lot more sense once I heard it.
 
-Setting up this server was extremely simple. Since I'm only serving static 
+Setting up this server was extremely simple. Since I'm only serving static
 files, all I really needed was the following:
 
 ```nginx
@@ -289,7 +290,7 @@ server {
 }
 ```
 
-This got a lot longer than I expected it to. Time for sleep - will proofread 
+This got a lot longer than I expected it to. Time for sleep - will proofread
 tomorrow.
 
 [nginx]: http://nginx.net/

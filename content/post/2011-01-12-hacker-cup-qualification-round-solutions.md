@@ -5,6 +5,7 @@ meta:
   _edit_lock: "1294822476"
   _wp_old_slug: ""
 published: true
+unlisted: true
 status: publish
 tags: []
 title: Hacker Cup Qualification Round - Solutions

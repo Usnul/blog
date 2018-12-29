@@ -9,12 +9,15 @@ status: publish
 tags:
 - javascript
 - jquery
-title: "Javascript Dependency Loading â\x80\x93 jquery.atreq"
+title: "Javascript Dependency Loading with jquery.atreq"
 type: post
 url: /2010/08/14/javascript-dependency-loading-jquery-atreq/
 ---
 
-For a project I'm working on, I have a fairly complex dependency tree and was getting fed up with manually including every single one in my haml layout file. So I started looking up other solutions and eventually decided none met my needs, so, as usual, I wrote my own. 
+*Edit from 2018: This post is 8 years old now, and unsurprisingly, the community has moved far forward from this, with bundlers like webpack, browserify, and parcel now being part of the standard toolkit. This wasn't the case in 2010! Probably nobody should
+be using the library here any more, but it's interesting looking at it in retrospect!*
+
+For a project I'm working on, I have a fairly complex dependency tree and was getting fed up with manually including every single one in my haml layout file. So I started looking up other solutions and eventually decided none met my needs, so, as usual, I wrote my own.
 
 [jquery.atreq @ github](http://github.com/jlfwong/jquery.atreq)
 
@@ -31,7 +34,7 @@ How to use
 First, include your main application file with `$.atreq`
 
 ```html
-<script type='text/javascript' 
+<script type='text/javascript'
 src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type='text/javascript' src="jquery.atreq.js"></script>
 <script type='text/javascript'>
@@ -39,7 +42,7 @@ $.atreq('application.js');
 </script>
 ```
 
-Then inside your application.js and any other required files, place a require statement in the comments. 
+Then inside your application.js and any other required files, place a require statement in the comments.
 
 ```js
 // application.js
@@ -60,7 +63,7 @@ Library1Function();
 Relative Require Paths
 ----------------------
 
-Unless the require paths begin with a `/`, they're assumed to be relative to the location of the file they're in. 
+Unless the require paths begin with a `/`, they're assumed to be relative to the location of the file they're in.
 
 This means, since `lib1.js` is in `lib/`, the require statement below will load `lib/deb/lib1dep.js`. This makes your code portable across locations.
 
@@ -128,7 +131,7 @@ See: [$.include() @ tobiasz123.wordpress.com](http://tobiasz123.wordpress.com/20
 
 ### $.require
 
-Another jQuery plugin, `$.require` doesn't have the problem of `$.include`: required files can require files of their own and scripts will still be parsed in the correct order. 
+Another jQuery plugin, `$.require` doesn't have the problem of `$.include`: required files can require files of their own and scripts will still be parsed in the correct order.
 
 The way it does this is it forces the scripts to be included synchronously. Functionality wise, this has no effect. However, it will result in slower load times for complex dependency trees.
 

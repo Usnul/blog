@@ -5,6 +5,7 @@ meta:
   _edit_lock: "1285900399"
   _wp_old_slug: ""
 published: true
+unlisted: true
 status: publish
 tags:
 - github
@@ -16,7 +17,7 @@ type: post
 url: /2010/07/16/jsonimal-elegant-dom-contruction-with-jquery/
 ---
 
-**EDIT** There is a more complete project achieving exactly the goals I set out 
+**EDIT** There is a more complete project achieving exactly the goals I set out
 for called jquery-haml: <http://github.com/creationix/jquery-haml>
 
 Occasionally for Javascript projects, I found myself building a lot of HTML programatically, and I wasn't satisfied with any of the techniques available, so I built JSONimal. I was originally going to just call it JSONML, but that was taken.

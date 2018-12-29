@@ -4,6 +4,7 @@ meta:
   _edit_last: "1"
   _edit_lock: "1285900502"
 published: true
+unlisted: true
 status: publish
 tags:
 - greasemonkey
@@ -19,13 +20,13 @@ url: /2010/02/05/jobmine-improved-greasemonkey-jquery/
   <img src="/images/JobmineImproved.png" />
 </div>
 
-_I will no longer be supporting this script, there's a much better version 
-called [Jobmine Plus](https://github.com/matthewn4444/jobmine-plus-extension) 
+_I will no longer be supporting this script, there's a much better version
+called [Jobmine Plus](https://github.com/matthewn4444/jobmine-plus-extension)
 maintained by Matthew Ng._
 
-I, like many (most) Waterloo Co-op students, am forced to use Jobmine and am 
-extremely dissatisfied with its functionality. So I decided to kill three birds 
-with one stone: improve Jobmine, learn Greasemonkey and learn jQuery all at the 
+I, like many (most) Waterloo Co-op students, am forced to use Jobmine and am
+extremely dissatisfied with its functionality. So I decided to kill three birds
+with one stone: improve Jobmine, learn Greasemonkey and learn jQuery all at the
 same time.
 
 The result is, unsurprisingly, a Greasemonkey script written using jQuery that improves on some features of Jobmine.
@@ -39,7 +40,7 @@ The result is, unsurprisingly, a Greasemonkey script written using jQuery that i
 <li><strong>No more spacers</strong> - the Jobmine page is riddled with spacer images just sitting there, stealing screen real estate</li>
 </ul>
 
-*Edit from 2017: This is now defunct, so I removed the installation 
+*Edit from 2017: This is now defunct, so I removed the installation
 instructions.*
 
 <h1>Greasemonkey</h1>

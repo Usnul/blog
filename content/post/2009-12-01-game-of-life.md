@@ -4,6 +4,7 @@ meta:
   _edit_last: "1"
   _edit_lock: "1265429990"
 published: true
+unlisted: true
 status: publish
 tags:
 - conway
@@ -50,36 +51,36 @@ This project is my first time making use of two utilities: optparse in python, a
 You can take a look at optparse here: <a href="http://docs.python.org/library/optparse.html">optparse @ docs.python.org</a>.
 The tutorial included there was enough for me to create this application.
 
-<b>gifsicle</b> is a command line application for the creation and modification of animated gifs. It can create gifs out of a sequence of images, convert an image into a sequence of images, or even modify replace a single frame of an animated gif with an external image. 
+<b>gifsicle</b> is a command line application for the creation and modification of animated gifs. It can create gifs out of a sequence of images, convert an image into a sequence of images, or even modify replace a single frame of an animated gif with an external image.
 
 You can see and download gifsicle here: <a href="http://www.lcdf.org/gifsicle/">Official Gifsicle Page</a>
 
-Why did I use gifsicle instead of the much more universal convert in 
-ImageMagick? Simply put: gifsicle is faster. If someone would like to do a 
-benchmark to (dis)prove this, I'd be happy to post the results, but from simple 
-experimentation, it seemed obvious to me that gifsicle took less time to make 
+Why did I use gifsicle instead of the much more universal convert in
+ImageMagick? Simply put: gifsicle is faster. If someone would like to do a
+benchmark to (dis)prove this, I'd be happy to post the results, but from simple
+experimentation, it seemed obvious to me that gifsicle took less time to make
 the animation.
 
 What's Next?
 ============
 
-Now that I have a working command line utility, my next goal is to make an AJAX 
-powered web interface for the thing. This might explain why I have `ProcMonitor` 
-in the github for Game of Life. The web interface was another key motivator 
-behind using gifs for the output medium. People may want to use these things for 
-avatar, and they're simply easier to share and move around than a java applet, 
-or a flash swf, or some database stored simulation. It also helps that gifs are 
-designed for palette based images, which works out nicely for optimizing the 
-file size of these animations. The first 1000 generations of acorn is 2.5 MB as 
-it is. 
+Now that I have a working command line utility, my next goal is to make an AJAX
+powered web interface for the thing. This might explain why I have `ProcMonitor`
+in the github for Game of Life. The web interface was another key motivator
+behind using gifs for the output medium. People may want to use these things for
+avatar, and they're simply easier to share and move around than a java applet,
+or a flash swf, or some database stored simulation. It also helps that gifs are
+designed for palette based images, which works out nicely for optimizing the
+file size of these animations. The first 1000 generations of acorn is 2.5 MB as
+it is.
 
-Another thing I want to do is make `lifeImage.py` read the `.cells` format from 
-the <a href="http://www.bitstorm.org/gameoflife/lexicon/">Life Lexicon</a>. This 
-would save me a lot of time having to code all the states myself. This will be a 
-very straightforward process, as the `.cells` files are simply plaintext with 2 
+Another thing I want to do is make `lifeImage.py` read the `.cells` format from
+the <a href="http://www.bitstorm.org/gameoflife/lexicon/">Life Lexicon</a>. This
+would save me a lot of time having to code all the states myself. This will be a
+very straightforward process, as the `.cells` files are simply plaintext with 2
 lines of header.
 
 Suggestions/bug fixes for my implementation of Game of Life are welcomed.
 
-I'm almost 100% sure that some combination of the command line flags of 
+I'm almost 100% sure that some combination of the command line flags of
 `lifeImage.py` don't work nicely together, and would like to know what they are.

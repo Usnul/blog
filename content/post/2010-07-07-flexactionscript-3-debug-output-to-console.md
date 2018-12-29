@@ -5,6 +5,7 @@ meta:
   _edit_lock: "1278565881"
   _wp_old_slug: ""
 published: true
+unlisted: true
 status: publish
 tags:
 - actionscript
@@ -17,7 +18,7 @@ type: post
 url: /2010/07/07/flexactionscript-3-debug-output-to-console/
 ---
 
-I recently started messing around with the [Flixel][] framework - something built on top of [Flex][] to make retro games. One of the first things I noticed was how difficult it is to debug things - especially complex objects. 
+I recently started messing around with the [Flixel][] framework - something built on top of [Flex][] to make retro games. One of the first things I noticed was how difficult it is to debug things - especially complex objects.
 
 [Flixel]: http://flixel.org/
 [FLex]: http://www.adobe.com/products/flex/
@@ -46,7 +47,7 @@ package learning {
       }
 
       var tabs:String = "";
-      for(var i:int = 0; i < level; i++) { 
+      for(var i:int = 0; i < level; i++) {
         tabs += "\t"
       }
 
@@ -127,7 +128,7 @@ This is what I have:
 
 ```bash
 flashlog() {
-  tail -f $* ~/Library/Preferences/Macromedia/Flash\ Player/Logs/flashlog.txt; 
+  tail -f $* ~/Library/Preferences/Macromedia/Flash\ Player/Logs/flashlog.txt;
 }
 ```
 

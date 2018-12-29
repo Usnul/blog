@@ -10,7 +10,7 @@ tags:
 - cs241
 - make
 - school
-title: Make your life easier with GNU Make.
+title: Make your life easier with GNU Make
 type: post
 url: /2010/09/30/make-your-life-easier-with-gnu-make/
 ---
@@ -70,7 +70,7 @@ The variable `$^` is a space separated list of all the dependencies. `$@` is the
 
 Writing Implicit Rules
 =============
-Another unnecessary piece of code duplication exists for compiling multiple files of the same type. For instance, the following is repetitive: 
+Another unnecessary piece of code duplication exists for compiling multiple files of the same type. For instance, the following is repetitive:
 
 ```make
 a2p8.mips: a2p8.asm
@@ -116,27 +116,27 @@ $  make
 ----------- Empty ------------------
 java mips.array linked.mips < a2p7.Empty.in
 Enter length of array: MIPS program completed normally.
-$01 = 0x000001c4   $02 = 0x00000000   $03 = 0x00000000   $04 = 0x00000000   
-$05 = 0x00000000   $06 = 0x00000000   $07 = 0x00000000   $08 = 0x00000000   
-$09 = 0x00000000   $10 = 0x00000000   $11 = 0x000001c4   $12 = 0x00000000   
-$13 = 0x00000000   $14 = 0x00000000   $15 = 0x00000000   $16 = 0x00000000   
-$17 = 0x00000000   $18 = 0x00000000   $19 = 0x00000000   $20 = 0x00000000   
-$21 = 0x00000000   $22 = 0x00000000   $23 = 0x00000000   $24 = 0x00000000   
-$25 = 0x00000000   $26 = 0x00000000   $27 = 0x00000000   $28 = 0x00000000   
-$29 = 0x00000000   $30 = 0x01000000   $31 = 0x8123456c   
+$01 = 0x000001c4   $02 = 0x00000000   $03 = 0x00000000   $04 = 0x00000000
+$05 = 0x00000000   $06 = 0x00000000   $07 = 0x00000000   $08 = 0x00000000
+$09 = 0x00000000   $10 = 0x00000000   $11 = 0x000001c4   $12 = 0x00000000
+$13 = 0x00000000   $14 = 0x00000000   $15 = 0x00000000   $16 = 0x00000000
+$17 = 0x00000000   $18 = 0x00000000   $19 = 0x00000000   $20 = 0x00000000
+$21 = 0x00000000   $22 = 0x00000000   $23 = 0x00000000   $24 = 0x00000000
+$25 = 0x00000000   $26 = 0x00000000   $27 = 0x00000000   $28 = 0x00000000
+$29 = 0x00000000   $30 = 0x01000000   $31 = 0x8123456c
 ----------- All ------------------
 java mips.array linked.mips < a2p7.All.in
 Enter length of array: Enter array element 0: Enter array element 1: Enter array element 2: 123
 0
 -456
 MIPS program completed normally.
-$01 = 0xfffffe38   $02 = 0x00000003   $03 = 0x00000001   $04 = 0x00000000   
-$05 = 0x00000000   $06 = 0x00000000   $07 = 0x00000000   $08 = 0x00000000   
-$09 = 0x00000000   $10 = 0x00000000   $11 = 0x000001d0   $12 = 0x00000000   
-$13 = 0x00000000   $14 = 0x00000000   $15 = 0x00000000   $16 = 0x00000000   
-$17 = 0x00000000   $18 = 0x00000000   $19 = 0x00000000   $20 = 0x00000000   
-$21 = 0x00000000   $22 = 0x00000000   $23 = 0x00000000   $24 = 0x00000000   
-$25 = 0x00000000   $26 = 0x00000000   $27 = 0x00000000   $28 = 0x00000000   
+$01 = 0xfffffe38   $02 = 0x00000003   $03 = 0x00000001   $04 = 0x00000000
+$05 = 0x00000000   $06 = 0x00000000   $07 = 0x00000000   $08 = 0x00000000
+$09 = 0x00000000   $10 = 0x00000000   $11 = 0x000001d0   $12 = 0x00000000
+$13 = 0x00000000   $14 = 0x00000000   $15 = 0x00000000   $16 = 0x00000000
+$17 = 0x00000000   $18 = 0x00000000   $19 = 0x00000000   $20 = 0x00000000
+$21 = 0x00000000   $22 = 0x00000000   $23 = 0x00000000   $24 = 0x00000000
+$25 = 0x00000000   $26 = 0x00000000   $27 = 0x00000000   $28 = 0x00000000
 $29 = 0x00000000   $30 = 0x01000000   $31 = 0x8123456c
 ```
 

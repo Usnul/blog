@@ -4,6 +4,7 @@ meta:
   _edit_last: "1"
   _edit_lock: "1277339178"
 published: true
+unlisted: true
 status: publish
 tags:
 - c++
@@ -58,10 +59,10 @@ For interest, here's what the snapper chain looks like in the first 30 iteration
     P: #.........	S: ..###.....
     P: ##........	S: #.###.....
 
-What we're interested in is how to tell where a specific snapper is on. It turns 
-out that this is quite simple - so long as all snappers before it are on the ON 
-settings, it will be powered. This means that ultimately, the power column above 
-is irrelevant. All we need to know is that the N-1 least significant bits are 
+What we're interested in is how to tell where a specific snapper is on. It turns
+out that this is quite simple - so long as all snappers before it are on the ON
+settings, it will be powered. This means that ultimately, the power column above
+is irrelevant. All we need to know is that the N-1 least significant bits are
 set. This is fairly trivial to check.
 
 ```cpp
@@ -93,17 +94,17 @@ sys     0m0.040s
 
 
 <h1>Problem 2: Fair Warning</h1>
-This problem took me about 40 minutes to think of the solution for and about 5 
-minutes to code. Honour's Algebra (MATH 115) came in handy here. You can first 
-calculate T (the optimal anniversary) by looking at the gcd (greatest common 
-divisor) of the differences between the time elapsed since the events. This 
-works because in order for T to divide the time elapsed since the events, it 
-must also divide the time elapsed between the events. After that, you just need 
-to find the first y that makes any of the numbers divisible by T. I just wrote 
-out the congruences on my whiteboard (which I probably shouldn't have needed to 
+This problem took me about 40 minutes to think of the solution for and about 5
+minutes to code. Honour's Algebra (MATH 115) came in handy here. You can first
+calculate T (the optimal anniversary) by looking at the gcd (greatest common
+divisor) of the differences between the time elapsed since the events. This
+works because in order for T to divide the time elapsed since the events, it
+must also divide the time elapsed between the events. After that, you just need
+to find the first y that makes any of the numbers divisible by T. I just wrote
+out the congruences on my whiteboard (which I probably shouldn't have needed to
 do) then typed in my answer.
 
-The only remaining problem here is dealing with the large numbers, which is 
+The only remaining problem here is dealing with the large numbers, which is
 hardly a problem in python. Here's my solution:
 
 ```python
@@ -144,19 +145,19 @@ sys     0m0.021s
 ```
 
 <h1>Problem 3: Theme Park</h1>
-This is an optimization problem. There are a lot of different optimizations you 
-can apply, but I figured "to hell with it" and decided the solution getting it 
-down to O(R) was probably sufficient. If you want to look at a better list of 
-optimizations, go look here: <a 
-href="http://code.google.com/codejam/contest/dashboard?c=433101#s=a&a=2">Google 
+This is an optimization problem. There are a lot of different optimizations you
+can apply, but I figured "to hell with it" and decided the solution getting it
+down to O(R) was probably sufficient. If you want to look at a better list of
+optimizations, go look here: <a
+href="http://code.google.com/codejam/contest/dashboard?c=433101#s=a&a=2">Google
 Codejam 2010 Qualification Round Contest Analysis</a>.
 
-All I figured I needed to do was make it so I didn't have to find the groups 
-every single time the ride was loaded. To do this, I simulated using a queue 
-until I arrived at a position where the group at the front of the line had been 
-at the front before. While doing this, I record how many euros were made for a 
-given start of the line, and who ends up at the front of the line while they're 
-on the roller coaster. After this, the O(R) loop is very simple. Just add the 
+All I figured I needed to do was make it so I didn't have to find the groups
+every single time the ride was loaded. To do this, I simulated using a queue
+until I arrived at a position where the group at the front of the line had been
+at the front before. While doing this, I record how many euros were made for a
+given start of the line, and who ends up at the front of the line while they're
+on the roller coaster. After this, the O(R) loop is very simple. Just add the
 number of euros for the run, then move on to the next front of the line.
 
 ```cpp
@@ -247,5 +248,5 @@ user    0m11.542s
 sys     0m0.022s
 ```
 
-I might code up an O(N) solution later, which really isn't that difficult, but 
+I might code up an O(N) solution later, which really isn't that difficult, but
 at this point in the contest, it simply didn't matter enough.

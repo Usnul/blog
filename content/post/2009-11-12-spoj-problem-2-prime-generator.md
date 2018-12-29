@@ -4,6 +4,7 @@ meta:
   _edit_last: "1"
   _edit_lock: "1311129817"
 published: true
+unlisted: true
 status: publish
 tags:
 - bash
@@ -410,7 +411,7 @@ while t < T
 
         if (p >= m)
             start = p*2
-        else 
+        else
             start = m + ((p - m % p)%p)
         end
 
@@ -513,7 +514,7 @@ for ($i = 3; $i <= 32000; $i+=2) {
     $isprime = 1;
     $cap = sqrt($i) + 1;
     foreach $p (@primes) {
-        if ($p >= $cap) { 
+        if ($p >= $cap) {
             last;
         }
         if ($i % $p == 0) {
@@ -665,7 +666,7 @@ begin
         cap := sqrt(i) + 1;
         for j := 1 to numprimes do
         begin
-            if primes[j] >= cap then 
+            if primes[j] >= cap then
                     break;
 
             if (i MOD primes[j] = 0) then
@@ -675,7 +676,7 @@ begin
             end
         end;
 
-        if isprime = true then 
+        if isprime = true then
         begin
             numprimes := numprimes + 1;
             primes[numprimes] := i

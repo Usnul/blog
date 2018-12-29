@@ -5,6 +5,7 @@ meta:
   _edit_lock: "1290224986"
   _wp_old_slug: ""
 published: true
+unlisted: true
 status: publish
 tags: []
 title: Mechanize and UWAce Downloader
@@ -47,7 +48,7 @@ Of course, I wouldn't release anything that asks for your password without relea
 Mechanize
 =======
 
-This version of the downloader is written in ruby with the aid of Mechanize for ruby. 
+This version of the downloader is written in ruby with the aid of Mechanize for ruby.
 Mechanize is a set of tools for automating webpage interactions and retrieving data. It can identify links and forms on a page, fill them in, submit them and grab any data you want. Perfect for this task.
 
 There's a simple guide on github here: [Getting Started with Mechanize][]

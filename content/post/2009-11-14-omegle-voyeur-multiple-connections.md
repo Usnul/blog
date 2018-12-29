@@ -4,6 +4,7 @@ meta:
   _edit_last: "1"
   _edit_lock: "1259218981"
 published: true
+unlisted: true
 status: publish
 tags:
 - AJAX
@@ -31,7 +32,7 @@ Below is some php code I use to make curl even easier than it already is. simple
 ```php
 <?
 // Simple cUrl
-// Simple get and post requests 
+// Simple get and post requests
 function simple_get($url) {
     $c = curl_init();
     curl_setopt($c, CURLOPT_URL, $url);
@@ -68,6 +69,6 @@ EDIT: It seems that after being posted on reddit, omegle has (manually?) IP bloc
 You can go grab <a href="http://www.apachefriends.org/en/xampp.html">XAMPP</a> to run it locally.
 For the time being, you can view it here: <a href="http://petersobot.com/omegle/">Omegle Voyeur</a>
 
-A quick note on how I figured out the Omegle communication protocol. 
+A quick note on how I figured out the Omegle communication protocol.
 The entire code governing the process is conveniently kept here: <a href="http://omegle.com/static/omegle.js?27">http://omegle.com/static/omegle.js?27</a>
 Unless you enjoy reading 1000s of characters on a single line, you can use the <a href='http://jsbeautifier.org/'>JS Beautifier</a> to clean it up to a readable state.
