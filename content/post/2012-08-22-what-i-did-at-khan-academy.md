@@ -315,7 +315,7 @@ remote_api_stub.ConfigureRemoteApi(
     '/_ah/remote_api',
     auth_func=lambda: ('test', 'test')
     servername="localhost:8080")
-    ```
+```
 
 4. Embed IPython.
 
