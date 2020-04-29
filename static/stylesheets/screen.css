@@ -359,14 +359,33 @@ a.author__logo:hover #eyebrows {
   line-height: 1.25;
 }
 
-.twitter-calls-to-action {
+.calls-to-action {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  align-items: stretch;
 }
 
-.twitter-calls-to-action iframe + iframe {
+.calls-to-action > * + * {
   margin-left: 10px;
+}
+
+.tinyletter {
+  display: flex;
+  align-items: stretch;
+}
+
+.tinyletter > * + * {
+  margin-left: 5px;
+}
+
+.tinyletter input[type=text] {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.tinyletter button, .tinyletter input[type=text] {
+  border-radius: 4px;
 }
 
 @media print {
@@ -396,8 +415,8 @@ a.author__logo:hover #eyebrows {
 
   /* Hide content that isn't useful for printing */
   .endpost-blurb,
-  .twitter-calls-to-action,
-  .twitter-calls-to-action + hr,
+  .calls-to-action,
+  .calls-to-action + hr,
   .adjacent-posts,
   .author {
     display: none;
