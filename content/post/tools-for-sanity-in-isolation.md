@@ -6,6 +6,7 @@ title: "Tools for Sanity in Isolation"
 type: post
 image: /images/tools-for-sanity/zoom.png
 url: post/tools-for-sanity
+description: I live alone at the moment, and the start of quarantine, was… rocky.
 ---
 
 <style>
