@@ -157,7 +157,8 @@ Enough about brightness, let’s return to the focus of this post: color!
 
 How might we identify a given color? If I have a lemon in front of me, how can I tell you over the phone what color it is? I might tell you “the lemon is yellow”, but which yellow? How would you precisely identify each of these yellows?
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_382135F512C449943D36A9C35B9E8A4F38EB382A3D72DF63DC63D011CB7A8322_1521414272066_Yellows.png)
+
+![Shades of yellow](/images/color/Yellows.png)
 
 
 Armed with the knowledge that color is humans’ interpretation of electromagnetic radiation, we might be tempted to define color mathematically via spectral flux. Any human visible color will be some weighted combination of the monochromatic (single wavelength) colors. Monochromatic colors are also known as spectral colors.
